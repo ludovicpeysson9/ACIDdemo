@@ -1,34 +1,33 @@
 package com.example.aciddemo.main.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "meterdata")
-@Getter
-@Setter
+@Table(name = "meter_data", schema = "public", catalog = "postgres")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class MeterDataEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
     private Long id;
-
-    private Long meter_id;
-
+    @Basic
+    @Column(name = "`when`")
     private Timestamp when;
+    @Basic
+    @Column(name = "value")
+    private BigDecimal value;
+    @Basic
+    @Column(name = "meter_id")
+    private int meterId;
 
-    private Long value;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
+

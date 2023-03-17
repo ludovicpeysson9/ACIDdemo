@@ -1,30 +1,25 @@
 package com.example.aciddemo.main.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
-@Table(name = "zone")
-@Getter
-@Setter
+@Table(name = "zone", schema = "public", catalog = "postgres")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class ZoneEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
     private Long id;
-
+    @Basic
+    @Column(name = "label")
     private String label;
-
-    private Long parent_zone_id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
+    @Basic
+    @Column(name = "parent_zone_id")
+    private Integer parentZoneId;
 }
