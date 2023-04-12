@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,14 +38,9 @@ public class EndPointsController {
         ZoneEntity zone2 = zoneRepository.save(new ZoneEntity(null, "Zone2", Math.toIntExact(zone1.getId())));
         zoneRepository.delete(zone1);
     }
-//
-//    @PostMapping("/insmesures")
+
+//    @GetMapping("/insmesures")
 //    public void insMesures(){
-//        try{
-//
-//        }catch{
-//            LOGGER.error("Erreur pendant l'insertion des données"));
-//        }
 //    }
 //
 //    @DeleteMapping("/deletetag")
