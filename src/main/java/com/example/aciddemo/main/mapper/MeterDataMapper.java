@@ -4,7 +4,7 @@ import com.example.aciddemo.main.models.dto.MeterDTO;
 import com.example.aciddemo.main.models.entities.MeterEntity;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "sping")
+@Mapper(componentModel = "spring")
 public interface MeterDataMapper {
 
     MeterEntity dtoToEntity (MeterDTO meterDTO);
