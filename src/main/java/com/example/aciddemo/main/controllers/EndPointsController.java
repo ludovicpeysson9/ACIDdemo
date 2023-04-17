@@ -39,6 +39,12 @@ public class EndPointsController {
         zoneRepository.delete(zone1);
     }
 
+    @PostMapping("/testDataEntrance")
+    public void testData(){
+        ZoneEntity zone1 = zoneRepository.save(new ZoneEntity(null, "zone5", null));
+        ZoneEntity zone2 = zoneRepository.save(new ZoneEntity(null, "zone-", null));
+    }
+
 //    @GetMapping("/insmesures")
 //    public void insMesures(){
 //    }
